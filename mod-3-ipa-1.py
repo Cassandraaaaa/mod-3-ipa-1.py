@@ -87,12 +87,20 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    prod = (((ord(letter) - 65) % 26) + ord(letter_shift))
-
+    alphabet = ('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z')
+    
     if letter ==" ":
         return letter
     else:
-        return chr(prod)
+        old_letter = alphabet.index(letter)
+        basis_of_shift = alphabet.index(letter_shift)
+        new_letter = old_letter + basis_of_shift
+        if new_letter <= 25:
+            return alphabet[new_letter]
+        else:
+            while new_letter > 25:
+                new_letter = new_letter - 26
+            return alphabet[new_letter]
 def vigenere_cipher(message, key):
     '''Vigenere Cipher. 
     15 points.
